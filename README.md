@@ -14,7 +14,7 @@ conda activate nef
 ```
 git clone https://github.com/sancharidan/Neural_ExpertFinder.git
 ```
-- Store the input json with expert data in `./Data/input/`
+- Store the input json with expert data in `./Data/input/`. The format of the json file should be as below: a list of dictionaries, with each dictionary having fields `name` and `organization` mandatorily, and other fields like `research_areas` etc. optionally.
 ```
 [
     {"name": <expert_name_1>, "organization": <org_name>, ... },
@@ -22,3 +22,4 @@ git clone https://github.com/sancharidan/Neural_ExpertFinder.git
     ...
 ]
 ```
+-
