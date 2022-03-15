@@ -30,5 +30,7 @@ git clone https://github.com/sancharidan/Neural_ExpertFinder.git
 ``` 
 pip install -r requirements.txt
 ```
-- If you want to scrape Google Scholar for publications, you have to run the `scholarly_scrape.py` file.
-    -    
+- If you want to scrape Google Scholar for publications, you have to run the `scholarly_scrape.py` file. 
+```
+python scholarly_scrape.py --INPUT_FILENAME <name of input json file in ./Data/input> --RESEARCH_AREA_FIELD <field that stores list of research areas of experts in json, default is None>
+```
