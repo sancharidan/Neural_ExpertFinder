@@ -40,6 +40,7 @@ python scholarly_scrape.py --INPUT_FILENAME <name of input json file in ./Data/i
 python contrastive_gen.py --PUB_FILE <specify path to publications file in ./Data/processed/ folder> --RESEARCH_AREA_FILE <specify path to research areas file in ./Data/processed/ folder>
 ```
 - Model Training (fine-tuning) can be done in the [NEF - SciBERT Finetuning.ipynb](https://github.com/sancharidan/Neural_ExpertFinder/blob/master/NEF%20-%20SciBERT%20Finetuning.ipynb) notebook. The model input, model type and model parameters can be set in the notebook prior to fine-tuning. Support for Cuda and GPU is also built-in.
-
+- Model Evaluation can be done in the [Evaluate NEF.ipynb](https://github.com/sancharidan/Neural_ExpertFinder/blob/master/Evaluate%20NEF.ipynb) notebook. Relation triple classification evaluation is performed using confusion matrix, and for expert retrieval performance, we use Precision@5 (P@5), Mean Average Precision (MAP) and Mean Reciprocal Rank (MRR). The model to be used for evaluation, the train csv, test csv and adversarial pickle files can be specified in the notebook.
+- 
 ### Streamlit Demo App
 The repository for the demo app for SCIS Data and Model (as of February 2022) can be found [here](https://github.com/sancharidan/NEF_Streamlit_Demo).
