@@ -5,6 +5,7 @@ There are two parts to the usage of this repository:
 1. One can upload their custom expert data with bare-minimum information like experts' names and their respective affiliated academic organizations and then run the provided scripts to scrape Google Scholar using the open-sourced `scholarly` library, generate the contrastive training dataset and fine-tune a pre-trained language model using the detailed jupyter notebook guide. 
 2. A fine-tuned language model built on the SMU-SCIS dataset and stored on the huggingface model hub has been used to create a demo of a streamlit application for expert finding, this application can be played with as is or modified to cater to a custom model trained on custom dataset as mentioned in point 1 above. 
 
+### Data Pre-processing and Model Training
 In order to train a model and use this repository for custom data, please install anaconda or miniconda and follow the steps below:
 - Create a new python environment
 ```
@@ -30,7 +31,14 @@ git clone https://github.com/sancharidan/Neural_ExpertFinder.git
 ``` 
 pip install -r requirements.txt
 ```
-- If you want to scrape Google Scholar for publications, you have to run the `scholarly_scrape.py` file. 
+- If you want to scrape Google Scholar for publications, you have to run the `scholarly_scrape.py` file. Below command generates intermediate files from the scraped data and stores it in `./Data/processed/` folder as `.csv.` files with `INPUT_FILENAME` as the prefix for the filenames. 
 ```
 python scholarly_scrape.py --INPUT_FILENAME <name of input json file in ./Data/input> --RESEARCH_AREA_FIELD <field that stores list of research areas of experts in json, default is None>
 ```
+- Next step is contrastive training data generation using `contrastive_gen.py` which takes as input the intermediate publications file and research areas file generated in previous step. Note that if there is no research areas field in input json, the research areas file is generated from the experts' interests listed on Google Scholar. This script generates a `train.csv` file and stores it in the `./Data/processed/` folder.
+```
+python contrastive_gen.py --PUB_FILE <specify path to publications file in ./Data/processed/ folder> --RESEARCH_AREA_FILE <specify path to research areas file in ./Data/processed/ folder>
+```
+- Model Training (fine-tuning) can be done in the [NEF - SciBERT Finetuning.ipynb](https://github.com/sancharidan/Neural_ExpertFinder/blob/master/NEF%20-%20SciBERT%20Finetuning.ipynb) notebook. The model input, model type and model parameters can be set in the notebook prior to fine-tuning. Support for Cuda and GPU is also built-in.
+
+### Streamlit Demo App
