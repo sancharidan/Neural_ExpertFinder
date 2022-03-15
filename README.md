@@ -12,6 +12,6 @@ conda activate nef
 ```
 - Clone the repository
 ```
-git clone 
+git clone https://github.com/sancharidan/Neural_ExpertFinder.git
 ```
-- Store the input json with expert data in ```./Data/input/'''
+- Store the input json with expert data in `./Data/input/`
