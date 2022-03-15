@@ -42,3 +42,4 @@ python contrastive_gen.py --PUB_FILE <specify path to publications file in ./Dat
 - Model Training (fine-tuning) can be done in the [NEF - SciBERT Finetuning.ipynb](https://github.com/sancharidan/Neural_ExpertFinder/blob/master/NEF%20-%20SciBERT%20Finetuning.ipynb) notebook. The model input, model type and model parameters can be set in the notebook prior to fine-tuning. Support for Cuda and GPU is also built-in.
 
 ### Streamlit Demo App
+The repository for the demo app for SCIS Data and Model (as of February 2022) can be found [here](https://github.com/sancharidan/NEF_Streamlit_Demo).
