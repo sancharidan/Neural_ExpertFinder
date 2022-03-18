@@ -20,7 +20,7 @@ RESEARCH_AREA_FIELD = inP.RESEARCH_AREA_FIELD # research area field
 # OUTPUT_FILEPATH = inP.OUTPUT_FILEPATH # path to output file for storing scraped data in csv format
 
 # read input json and convert to df
-with open(INPUT_FILENAME,'r') as f:
+with open('./Data/input/'+INPUT_FILENAME+'.json','r') as f:
     inp_json = json.load(f)
 input_df = pd.DataFrame(inp_json)
 
@@ -84,13 +84,14 @@ abstracts_df = pd.DataFrame()
 gs_int_df = pd.DataFrame()
 affil_df = pd.DataFrame()
 for scholar in gs_data:
-    if 'publications' in scholar.keys():
-        tmp_pub = pd.DataFrame({'faculty':scholar['faculty'],'publications':[[l[0] for l in scholar['publications']]]}, index = [0])
+    if 'publication_titles' in scholar.keys():
+        tmp_pub = pd.DataFrame({'faculty':scholar['faculty'],'publications':[scholar['publication_titles']]}, index = [0])
         pub_df = pd.concat([pub_df, tmp_pub])
         
-        tmp_abs = pd.DataFrame({'faculty':scholar['faculty'],'abstracts':[[l[1] for l in scholar['publications']]]}, index = [0])
+        tmp_abs = pd.DataFrame({'faculty':scholar['faculty'],'abstracts':[scholar['abstracts']]}, index = [0])
         abstracts_df = pd.concat([abstracts_df, tmp_abs])
-        print (scholar['faculty'], len(tmp_pub[['publications']].values[0][0]) == len(tmp_abs[['abstracts']].values[0][0]))
+        
+        # print (scholar['faculty'], len(tmp_pub[['publications']].values[0][0]) == len(tmp_abs[['abstracts']].values[0][0]))
    
     tmp_gs_int = pd.DataFrame({'faculty':scholar['faculty'],'gs_interests':[scholar['interests']]}, index = [0])
     gs_int_df = pd.concat([gs_int_df,tmp_gs_int])

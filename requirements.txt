@@ -1,5 +1,5 @@
-openpyxl
-scholarly
+openpyxl==3.0.9
+scholarly==1.4.4
 numpy
 pandas
 -f https://download.pytorch.org/whl/torch_stable.html

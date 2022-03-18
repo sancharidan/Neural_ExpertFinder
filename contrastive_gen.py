@@ -14,7 +14,7 @@ parser.add_argument('--RESEARCH_AREA_FILE',default = './Data/processed/sample_in
 inP = parser.parse_args()
 PUB_FILE = inP.PUB_FILE # path to input json
 RESEARCH_AREA_FILE = inP.RESEARCH_AREA_FILE # research area field
-OUTPUT_FILEPATH = inP.OUTPUT_FILEPATH # path to output file for storing scraped data in csv format
+# OUTPUT_FILEPATH = inP.OUTPUT_FILEPATH # path to output file for storing scraped data in csv format
 
 ####--------------------Prepare contrastive data for training---------------------------#####
 
